@@ -65,9 +65,10 @@ input {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(10, 11, 16, 0.96);
+  background: rgba(10, 11, 16, 0.88);
   border-bottom: 1px solid #181922;
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
 }
 
 .brand-row {
@@ -147,7 +148,7 @@ input {
 }
 
 .hero {
-  padding: 30px 0 18px;
+  padding: 34px 0 22px;
   border-bottom: 1px solid #171821;
 }
 
@@ -173,25 +174,27 @@ input {
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 24px;
+  gap: 12px;
+  margin-top: 26px;
 }
 
 .btn {
   padding: 11px 18px;
   border: 1px solid #272834;
-  border-radius: 10px;
+  border-radius: 12px;
   font-size: 0.95rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
 .btn-primary {
-  background: linear-gradient(180deg, #8268ff 0%, #7053ff 100%);
+  background: linear-gradient(180deg, #8b73ff 0%, #7053ff 100%);
   border-color: transparent;
   color: #fff;
+  box-shadow: 0 12px 24px rgba(112, 83, 255, 0.22);
 }
 
 .btn-secondary {
-  background: rgba(255, 255, 255, 0.015);
+  background: rgba(255, 255, 255, 0.02);
   color: #dbdbe3;
 }
 
@@ -350,15 +353,18 @@ input {
   align-items: center;
   justify-content: space-between;
   gap: 22px;
-  padding: 15px 14px 15px 16px;
-  border-radius: 10px;
+  padding: 16px 15px 16px 17px;
+  border-radius: 12px;
   border: 1px solid #22232d;
   background: linear-gradient(180deg, #111219 0%, #11131a 100%);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.14);
 }
 
 .role-card.urgent {
   border-color: rgba(255, 141, 87, 0.34);
-  box-shadow: inset 2px 0 0 rgba(255, 141, 87, 0.4);
+  box-shadow:
+    inset 2px 0 0 rgba(255, 141, 87, 0.4),
+    0 10px 24px rgba(0, 0, 0, 0.16);
 }
 
 .role-main {
@@ -498,9 +504,15 @@ input {
 
 .faq-card {
   padding: 16px 14px;
-  border-radius: 10px;
+  border-radius: 12px;
   border: 1px solid #22232d;
   background: linear-gradient(180deg, #101118 0%, #11131a 100%);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.faq-card:hover,
+.role-card:hover {
+  border-color: #2d2f3c;
 }
 
 .faq-card h3 {
@@ -516,8 +528,17 @@ input {
 }
 
 .cta-section {
-  padding: 44px 0 72px;
+  padding: 50px 0 78px;
   text-align: center;
+}
+
+.cta-section::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.08) 20%, rgba(255,255,255,0.08) 80%, transparent 100%);
+  margin-bottom: 36px;
 }
 
 .cta-chip {
@@ -614,21 +635,111 @@ input {
     width: min(100% - 24px, 1360px);
   }
 
-  .artifact-banner-inner,
-  .artifact-left,
-  .artifact-actions,
-  .hero-actions,
-  .filter-row,
-  .compact-row,
-  .section-heading,
-  .urgent-banner {
-    flex-direction: column;
-    align-items: flex-start;
+  .brand-row {
+    gap: 12px;
+    padding: 12px 0;
   }
 
-  .stats-inline,
+  .main-nav {
+    gap: 18px;
+    font-size: 0.92rem;
+    justify-content: flex-start;
+    overflow-x: auto;
+    scrollbar-width: none;
+    white-space: nowrap;
+    padding-bottom: 2px;
+  }
+
+  .main-nav::-webkit-scrollbar,
+  .filter-group::-webkit-scrollbar {
+    display: none;
+  }
+
+  .top-cta {
+    width: 100%;
+  }
+
+  .hero {
+    padding: 24px 0 18px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 10vw, 2.7rem);
+    line-height: 1.08;
+    max-width: 11ch;
+  }
+
+  .hero-subtext {
+    font-size: 0.96rem;
+    max-width: 36ch;
+  }
+
+  .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .hero-actions .btn:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .btn {
+    width: 100%;
+    min-height: 50px;
+    padding: 12px 14px;
+  }
+
+  .stats-inline {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 16px;
+    padding-top: 22px;
+  }
+
+  .inline-stat strong {
+    font-size: 1.15rem;
+  }
+
+  .inline-stat-wide {
+    grid-column: 1 / -1;
+  }
+
+  .compact-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .filter-group {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+
+  .filter-label {
+    flex: none;
+    min-width: fit-content;
+  }
+
+  .section-heading {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .urgent-banner {
+    flex-direction: row;
+    align-items: center;
+  }
+
   .faq-grid {
     grid-template-columns: 1fr;
+  }
+
+  .cta-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
   }
 
   .search-wrap,
