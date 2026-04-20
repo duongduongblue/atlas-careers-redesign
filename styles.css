@@ -692,9 +692,32 @@ input {
   }
 
   .stats-inline {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px 16px;
+    grid-template-columns: 1fr;
+    gap: 18px;
     padding-top: 22px;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .inline-stat {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .inline-stat strong,
+  .inline-stat span {
+    width: 100%;
+    text-align: center;
   }
 
   .inline-stat strong {
@@ -702,7 +725,7 @@ input {
   }
 
   .inline-stat-wide {
-    grid-column: 1 / -1;
+    grid-column: auto;
   }
 
   .compact-row {
