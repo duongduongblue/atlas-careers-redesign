@@ -61,51 +61,6 @@ input {
   min-height: 100vh;
 }
 
-.artifact-banner {
-  background: #f4f1ea;
-  color: #191919;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-}
-
-.artifact-banner-inner {
-  min-height: 46px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-}
-
-.artifact-left {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.claude-wordmark {
-  font-size: 1rem;
-  font-weight: 700;
-}
-
-.artifact-note {
-  font-size: 0.93rem;
-  color: #686873;
-}
-
-.artifact-actions {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.artifact-btn {
-  padding: 7px 11px;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  border-radius: 10px;
-  background: #fff;
-  color: #2d2d32;
-}
-
 .topbar {
   position: sticky;
   top: 0;
